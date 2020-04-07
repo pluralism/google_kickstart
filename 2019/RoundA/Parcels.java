@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Solution {
+public class Parcels {
     static class Pair {
         private final int x;
         private final int y;
