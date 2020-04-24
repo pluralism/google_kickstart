@@ -3,9 +3,9 @@ import java.util.Stack;
 
 public class Solution {
     public static void main(String[] args) {
+        final long GRID_SIZE = 1000000000;
         final Scanner in = new Scanner(System.in);
         final int T = in.nextInt();
-        final long GRID_SIZE = 1000000000;
 
         for (int i = 1; i <= T; i++) {
             final String s = in.next();
@@ -20,14 +20,12 @@ public class Solution {
                     pairs.push(total);
                     total = new Tuple<>(0L, 0L);
                 }
-                if (ch == '(') continue;
                 if (ch == ')') {
                     total.x = (total.x * multiplier.peek()) % GRID_SIZE;
                     total.y = (total.y * multiplier.peek()) % GRID_SIZE;
                     multiplier.pop();
                     final Tuple<Long> top = pairs.pop();
                     total = new Tuple<>((top.x + total.x) % GRID_SIZE, (top.y + total.y) % GRID_SIZE);
-                    continue;
                 }
                 if (ch == 'N') total.y--;
                 if (ch == 'S') total.y++;
